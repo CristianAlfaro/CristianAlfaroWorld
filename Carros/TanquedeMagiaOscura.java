@@ -45,6 +45,8 @@ public class TanquedeMagiaOscura implements Carro{
 
     @Override
     public void costo(centroMando cm) {
-
+        System.out.println(
+                "\nELIXIR: " + costo1 + "\nELIXIR OSCURO: " + costo2 + "\nAGUA SAGRADA: " + costo3
+        );
     }
 }

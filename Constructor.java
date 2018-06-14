@@ -292,6 +292,7 @@ public class Constructor {
                 System.out.println("DEBES CONSTRUIR UN TALLER ANTES");
                 return;
             }
+        }
 
             Scanner Hacer = new Scanner(System.in);
             int hola = 0;
@@ -315,7 +316,7 @@ public class Constructor {
 
             }
         }
-    }
+
 
     public void ConstruirCar(int opcion, ListaCarros LC1, centroMando cm, ListaEdificaciones LP) {
         if (opcion == 1) {

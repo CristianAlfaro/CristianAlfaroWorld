@@ -22,15 +22,6 @@ public class ListaCarros {
         }
     }
 
-
-    public String buscar (String busca){
-        for(Carro e : carros){
-            if(e.nombre() == busca){
-                return  e.nombre();
-            }
-        }
-         return null;
-        }
     }
 
 

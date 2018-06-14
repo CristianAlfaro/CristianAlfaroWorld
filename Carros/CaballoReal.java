@@ -45,6 +45,8 @@ public class CaballoReal implements Carro{
 
     @Override
     public void costo(centroMando cm) {
-
+        System.out.println(
+                "\nRUPIAS: " + costo1 + "\nKRONOLITO: " + costo2 + "\nMETERIAL MAESTRO: " + costo3
+        );
     }
 }

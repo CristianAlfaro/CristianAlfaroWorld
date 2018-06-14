@@ -45,6 +45,8 @@ public class NubeVoladora implements Carro{
 
     @Override
     public void costo(centroMando cm) {
-
+        System.out.println(
+                "\nARROZ: " + costo1 + "\nRAMEN: " + costo2 + "\nSEMILLAS DEL ERMITAÑO: " + costo3
+        );
     }
 }

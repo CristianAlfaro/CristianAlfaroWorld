@@ -27,7 +27,7 @@ public class MinaRamen implements edificacion {
 
     @Override
     public int vida() {
-        return 0;
+        return 200;
     }
 
     public String recurso(){

@@ -54,12 +54,15 @@ public class ListaGuerreros {
         }
     }
 
-    public Guerrero buscar(String busca) {
-        for (Guerrero e : guerreros) {
-            if (e.nombre() == busca) {
-                return e;
+    public Guerrero buscar(int buscar) {
+        Guerrero war;
+        for (int buscado = 1;buscado <= buscar; buscado++){
+            if(buscado == buscar){
+                war = guerreros.get(buscar-1);
+                return war;
             }
-        }return null;
+        }
+        return null;
     }
 
 }

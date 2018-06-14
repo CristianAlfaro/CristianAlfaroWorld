@@ -1,6 +1,7 @@
 package Guerreros;
 
 import Edificaciones.centroMando;
+import Edificaciones.edificacion;
 
 public class ElfoNoble implements Guerrero{
 
@@ -40,6 +41,10 @@ public class ElfoNoble implements Guerrero{
     }
 
     @Override
+    public void ataque(edificacion edificacion) {
+
+    }
+
     public int ataque() {
         return 50;
     }

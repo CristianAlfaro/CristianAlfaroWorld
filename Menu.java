@@ -1,3 +1,4 @@
+import Carros.Carro;
 import Edificaciones.*;
 import Jugadores.*;
 import Razas.*;
@@ -18,28 +19,8 @@ public class Menu {
     Raza raza3 = new ElfosOscuros();
     Jugador1 jugador1 = Jugador1.getInstance();
     Jugador2 jugador2 = Jugador2.getInstance();
-    Jugadores p1 = new Jugadores() {
-        @Override
-        public String getNombre() {
-            return null;
-        }
-
-        @Override
-        public String getRazaN() {
-            return null;
-        }
-    };
-    Jugadores p2 = new Jugadores() {
-        @Override
-        public String getNombre() {
-            return null;
-        }
-
-        @Override
-        public String getRazaN() {
-            return null;
-        }
-    };
+    Jugadores p1;
+    Jugadores p2;
     int turno = 0;
 
 //INSTANCIA EL OBJETO MENU ASI SOLO EXISTE UNO EN TODO EL PROGRAMA
@@ -181,8 +162,7 @@ public class Menu {
 
     }
 //ELIJE UNA POCION DEL MENU DE JUEGO
-    public void EleccionJugador(Jugadores p, centroMando cm, ListaEdificaciones LP, ListaGuerreros LG,
-                                ListaCarros LC,ListaEdificaciones LP2,ListaGuerreros LG2,ListaCarros LC2, centroMando cm2, Jugadores p2) {
+    public void EleccionJugador(Jugadores p, centroMando cm, ListaEdificaciones LP, ListaGuerreros LG, ListaCarros LC,ListaEdificaciones LP2,ListaGuerreros LG2,ListaCarros LC2, centroMando cm2, Jugadores p2) {
         Scanner Hacer = new Scanner(System.in);
         int hola;
         do {
@@ -249,8 +229,82 @@ public class Menu {
 //FUNCION QUE HACE QUE CADA TORPA ATAQUE UN EDIFICIO
     public void atacar(centroMando cm, Jugadores p1, ListaEdificaciones lp2, ListaCarros lc, ListaGuerreros lg, centroMando cm2, Jugadores p2){
         if(lp2.recorrer()) {
-            if(lc.recorrer() || lg.recorrer()){
-                System.out.println("ESTAMOS PREPARANDONOS PARA EL ATAQUE, QUE TROPA QUIERES MANDAR AL CAMPO ENEMIGO\n");
+            if(lc.recorrer() || lg.recorrer()) {
+                System.out.println("ESTAMOS PREPARANDONOS PARA EL ATAQUE, QUE TROPA QUIERES MANDAR AL CAMPO ENEMIGO\n1- SOLDADO\n2- CARRO DE BATALLA\n" +
+                        "3- OLVIDENLO AUN NO ES TIEMPO\n---------------");
+                int opc, log, opcwar;
+                Scanner opc1 = new Scanner(System.in);
+                Scanner opc2 = new Scanner(System.in);
+
+                do {
+                    opc = opc1.nextInt();
+                    if (opc == 1) {
+                        if (lg.recorrer()) {
+                            System.out.println("AQUI ESTAN TUS SOLDADOS, ELIGE QUIENES ATACARAN\n-----------------------------------------");
+                            lg.mostrar();
+                            log = lg.longitud();
+                            opcwar = opc2.nextInt();
+                            if (opcwar <= log) {
+                                Guerrero war;
+                                war = lg.buscar(opcwar);
+                                System.out.println(war.nombre() + " ESTA LISTO PARA EL ATAQUE JEFE\n ....DE CAMINO");
+                                System.out.println("QUE EDIFICACION ENEMIGA DECEAS ATACAR?\n");
+                                lp2.mostrar();
+                                log= lp2.longitud();
+                                opcwar = opc2.nextInt();
+                                if (opcwar <= log) {
+                                    edificacion edif;
+                                    edif = lp2.buscar(opcwar);
+                                    System.out.println(edif.nombre() + "SERE ATACADA POR " + war.nombre());
+                                }else {
+                                System.out.println("LO SINETO CAPI EL ENEMIGO NO TIENE ESA CONSTRUCCION");
+                            }
+                                return;
+                            } else {
+                                System.out.println("NO TIENES A ESE GUERRERO");
+                                return;
+                            }
+                        } else {
+                            System.out.println("AUN NO TIENES SOLDADOS ENTRENADOS");
+                        }
+
+                    } else if (opc == 2) {
+                        if (lc.recorrer()) {
+                            System.out.println("AQUI ESTAN TUS CARROS, ELIGE QUIENES ATACARAN\n-----------------------------------------");
+                            lc.mostrar();
+                            log = lc.longitud();
+                            opcwar = opc2.nextInt();
+                            if (opcwar <= log) {
+                                Carro car;
+                                car = lc.buscar(opcwar);
+                                System.out.println(car.nombre() + " ESTA LISTO PARA EL ATAQUE JEFE\n ....DE CAMINO");
+                                System.out.println("QUE EDIFICACION ENEMIGA DECEAS ATACAR?\n");
+                                lp2.mostrar();
+                                log= lp2.longitud();
+                                opcwar = opc2.nextInt();
+                                if (opcwar <= log) {
+                                    edificacion edif;
+                                    edif = lp2.buscar(opcwar);
+                                    System.out.println(edif.nombre() + "SERE ATACADA POR " + car.nombre());
+                                }else {
+                                    System.out.println("LO SINETO CAPI EL ENEMIGO NO TIENE ESA CONSTRUCCION");
+                                }
+                                return;
+                            } else {
+                                System.out.println("AUN NO TIENES CARROS ENTRENADOS");
+                                return;
+                            }
+                        } else if (opc == 3) {
+                            System.out.println("ENTENDIDO JEFE, AVISENOS EN EL MOMENTO PERFECTO");
+                            return;
+                        } else {
+                            System.out.println("INGRESE UNA DE LAS OPCIONES VALIDAS");
+                            return;
+                        }
+                    }
+                    while (opc != 3) ;
+
+                }while(true);
             }else{
                 System.out.println("DEBES CREAR TROPAS ANTES DE ATACAR");
             }
@@ -272,9 +326,7 @@ public class Menu {
         ListaCarros LC2 = new ListaCarros();
 
         while (Cm1 != null && Cm2 != null) {
-            Cm1.mostrartope(Cm1,p1);
             EleccionJugador(p1, Cm1, LP1, LG1, LC1, LP2, LG2, LC2, Cm2,p2);
-            Cm2.mostrartope(Cm2,p2);
             EleccionJugador(p2, Cm2, LP2, LG2, LC2, LP1, LG1 ,LC1, Cm1, p1);
             turno= turno += 1;
             System.out.println("Turno: "+turno);

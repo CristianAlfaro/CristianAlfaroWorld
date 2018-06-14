@@ -26,7 +26,7 @@ public class centroMando implements edificacion {
 
     public boolean juego = true;
 
-
+/*
     public void mostrartope(centroMando cm, Jugadores p1){
         if (p1.getRazaN() == raza1.nombre1()) {
             System.out.println("\nLOS RECURSOS MAXIMOS QUE TU CENTRO DE MANDO PUEDE TENER SON:\n");
@@ -40,6 +40,7 @@ public class centroMando implements edificacion {
 
         }
     }
+    */
 
     public void mejorar(centroMando cm){
         cm.recurso1tope= cm.recurso1tope + 1000;
@@ -80,11 +81,11 @@ public class centroMando implements edificacion {
 
     public void Recursos(Jugadores p1) {
         if (p1.getRazaN() == raza1.nombre1()) {
-            raza1.recursos(recurso1, recurso2, recurso3);
+            raza1.recursos(recurso1, recurso2, recurso3,recurso1tope,recurso2tope,recurso3tope);
         } else if (p1.getRazaN() == raza2.nombre1()) {
-            raza2.recursos(recurso1, recurso2, recurso3);
+            raza2.recursos(recurso1, recurso2, recurso3,recurso1tope,recurso2tope,recurso3tope);
         } else if (p1.getRazaN() == raza3.nombre1()) {
-            raza3.recursos(recurso1, recurso2, recurso3);
+            raza3.recursos(recurso1, recurso2, recurso3,recurso1tope,recurso2tope,recurso3tope);
 
         }
     }

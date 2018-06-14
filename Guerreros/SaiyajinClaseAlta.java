@@ -1,6 +1,7 @@
 package Guerreros;
 
 import Edificaciones.centroMando;
+import Edificaciones.edificacion;
 
 public class SaiyajinClaseAlta implements Guerrero{
     int costo1= 175;
@@ -39,6 +40,10 @@ public class SaiyajinClaseAlta implements Guerrero{
     }
 
     @Override
+    public void ataque(edificacion edificacion) {
+
+    }
+
     public int ataque() {
         return 125;
     }

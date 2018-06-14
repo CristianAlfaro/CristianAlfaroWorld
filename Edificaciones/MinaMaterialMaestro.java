@@ -27,7 +27,7 @@ public class MinaMaterialMaestro implements edificacion {
 
     @Override
     public int vida() {
-        return 0;
+        return 350;
     }
 
     public String recurso(){

@@ -12,6 +12,21 @@ public class ListaCarros {
         carros = new ArrayList<>();
     }
 
+    public int longitud() {
+        int cuantos = 0;
+        for (Carro e : carros) {
+
+            if (e != null) {
+                cuantos += 1;
+            }
+        }
+        if (cuantos == 0) {
+            return 0;
+        } else {
+            return cuantos;
+        }
+    }
+
     public void add(Carro car){
 
         carros.add(car);
@@ -40,10 +55,12 @@ public class ListaCarros {
         }
     }
 
-    public Carro buscar(String busca) {
-        for (Carro e : carros) {
-            if (e.nombre() == busca) {
-                return e;
+    public Carro buscar(int buscar) {
+        Carro car;
+        for (int buscado = 1;buscado <= buscar; buscado++){
+            if(buscado == buscar){
+                car = carros.get(buscar-1);
+                return car;
             }
         }
         return null;

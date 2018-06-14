@@ -18,7 +18,7 @@ public class ListaEdificaciones {
 
     public void mostrar() {
         for (edificacion e : edificacions) {
-            System.out.println(e.nombre()+" VIDA: "+e.vida());
+            System.out.println(e.nombre() + " VIDA: " + e.vida());
         }
     }
 
@@ -49,6 +49,32 @@ public class ListaEdificaciones {
             return false;
         } else {
             return true;
+        }
+    }
+
+    public edificacion buscar(int buscar) {
+        edificacion edif;
+        for (int buscado = 1; buscado <= buscar; buscado++) {
+            if (buscado == buscar) {
+                edif = edificacions.get(buscar - 1);
+                return edif;
+            }
+        }
+        return null;
+    }
+
+    public int longitud() {
+        int cuantos = 0;
+        for (edificacion e : edificacions) {
+
+            if (e != null) {
+                cuantos += 1;
+            }
+        }
+        if (cuantos == 0) {
+            return 0;
+        } else {
+            return cuantos;
         }
     }
 }

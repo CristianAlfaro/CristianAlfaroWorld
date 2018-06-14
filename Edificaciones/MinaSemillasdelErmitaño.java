@@ -30,7 +30,7 @@ public class MinaSemillasdelErmitaño implements edificacion {
     }
     @Override
     public int vida() {
-        return 0;
+        return 275;
     }
 
     @Override

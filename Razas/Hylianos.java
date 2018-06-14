@@ -4,13 +4,13 @@ import Edificaciones.*;
 
 public class Hylianos implements Raza{
     @Override
-    public void recursos(int recuro1, int recurso2, int recurso3){
+    public void recursos(int recuro1, int recurso2, int recurso3, int tope1, int top2, int top3){
         edificacion mineral1 = new MinaRupias();
         edificacion mineral2 = new MinaKronolito();
         edificacion mineral3 = new MinaMaterialMaestro();
 
-        System.out.println(((MinaRupias) mineral1).recurso()+" "+recuro1+"  "+((MinaKronolito) mineral2).recurso()+" "+recurso2
-                +"  "+((MinaMaterialMaestro) mineral3).recurso()+" "+recurso3);
+        System.out.println(((MinaRupias) mineral1).recurso()+" "+recuro1+" / "+tope1+"   "+((MinaKronolito) mineral2).recurso()+" "+recurso2
+                +" / "+top2+"   "+((MinaMaterialMaestro) mineral3).recurso()+" "+recurso3+" / "+top3);
     }
 
     @Override

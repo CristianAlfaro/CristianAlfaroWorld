@@ -27,7 +27,7 @@ public class TallerElfico implements edificacion {
 
     @Override
     public int vida() {
-        return 0;
+        return 700;
     }
 
     @Override

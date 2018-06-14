@@ -27,7 +27,7 @@ public class MinaElixir implements edificacion {
 
     @Override
     public int vida() {
-        return 0;
+        return 250;
     }
 
     public String recurso(){

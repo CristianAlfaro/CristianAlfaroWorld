@@ -1,6 +1,7 @@
 package Guerreros;
 
 import Edificaciones.centroMando;
+import Edificaciones.edificacion;
 
 public class SuperSaiyajin implements Guerrero{
 
@@ -40,6 +41,9 @@ public class SuperSaiyajin implements Guerrero{
     }
 
     @Override
+    public void ataque(edificacion edificacion) {
+
+    }
     public int ataque() {
         return 600;
     }

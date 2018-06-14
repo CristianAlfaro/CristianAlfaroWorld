@@ -1,6 +1,7 @@
 package Guerreros;
 
 import Edificaciones.centroMando;
+import Edificaciones.edificacion;
 
 public class ElfoDeCaza implements Guerrero{
 
@@ -40,6 +41,10 @@ public class ElfoDeCaza implements Guerrero{
     }
 
     @Override
+    public void ataque(edificacion edificacion) {
+
+    }
+
     public int ataque() {
         return 250;
     }

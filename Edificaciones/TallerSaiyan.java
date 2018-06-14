@@ -26,7 +26,7 @@ public class TallerSaiyan implements edificacion {
 
     @Override
     public int vida() {
-        return 0;
+        return 500;
     }
 
     @Override

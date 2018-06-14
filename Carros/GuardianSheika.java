@@ -4,8 +4,8 @@ import Edificaciones.centroMando;
 
 public class GuardianSheika implements Carro{
 
-    int costo1= 200;
-    int costo2= 200;
+    int costo1= 300;
+    int costo2= 250;
     int costo3= 100;
 
     @Override
@@ -18,12 +18,12 @@ public class GuardianSheika implements Carro{
 
     @Override
     public int vida() {
-        return 200;
+        return 600;
     }
 
     @Override
     public int ataque() {
-        return 50;
+        return 150;
     }
 
     @Override

@@ -4,9 +4,9 @@ import Edificaciones.centroMando;
 
 public class ElfoNoble implements Guerrero{
 
-    int costo1= 200;
+    int costo1= 150;
     int costo2= 200;
-    int costo3= 100;
+    int costo3= 30;
 
     @Override
     public boolean Sepuede(centroMando cm) {
@@ -36,12 +36,12 @@ public class ElfoNoble implements Guerrero{
 
     @Override
     public int vida() {
-        return 400;
+        return 300;
     }
 
     @Override
     public int ataque() {
-        return 30;
+        return 50;
     }
 
     @Override

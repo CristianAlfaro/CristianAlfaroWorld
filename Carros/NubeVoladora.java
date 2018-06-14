@@ -5,8 +5,8 @@ import Edificaciones.centroMando;
 public class NubeVoladora implements Carro{
 
     int costo1= 200;
-    int costo2= 200;
-    int costo3= 100;
+    int costo2= 300;
+    int costo3= 20;
 
     @Override
     public Carro carro(){
@@ -18,12 +18,12 @@ public class NubeVoladora implements Carro{
 
     @Override
     public int vida() {
-        return 200;
+        return 300;
     }
 
     @Override
     public int ataque() {
-        return 50;
+        return 75;
     }
 
     @Override

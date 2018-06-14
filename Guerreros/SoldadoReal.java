@@ -5,8 +5,8 @@ import Edificaciones.centroMando;
 public class SoldadoReal implements Guerrero{
 
     int costo1= 200;
-    int costo2= 200;
-    int costo3= 100;
+    int costo2= 150;
+    int costo3= 40;
 
     @Override
     public boolean Sepuede(centroMando cm) {
@@ -36,12 +36,12 @@ public class SoldadoReal implements Guerrero{
 
     @Override
     public int vida() {
-        return 300;
+        return 200;
     }
 
     @Override
     public int ataque() {
-        return 55;
+        return 75;
     }
 
     @Override

@@ -4,9 +4,9 @@ import Edificaciones.centroMando;
 
 public class TanquedeMagiaOscura implements Carro{
 
-    int costo1= 200;
-    int costo2= 200;
-    int costo3= 100;
+    int costo1= 240;
+    int costo2= 280;
+    int costo3= 120;
 
     @Override
     public Carro carro(){
@@ -18,12 +18,12 @@ public class TanquedeMagiaOscura implements Carro{
 
     @Override
     public int vida() {
-        return 200;
+        return 800;
     }
 
     @Override
     public int ataque() {
-        return 50;
+        return 100;
     }
 
     @Override

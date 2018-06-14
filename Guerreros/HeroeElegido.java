@@ -4,9 +4,9 @@ import Edificaciones.centroMando;
 
 public class HeroeElegido implements Guerrero{
 
-    int costo1= 200;
-    int costo2= 200;
-    int costo3= 100;
+    int costo1= 400;
+    int costo2= 450;
+    int costo3= 200;
 
     @Override
     public boolean Sepuede(centroMando cm) {
@@ -36,12 +36,12 @@ public class HeroeElegido implements Guerrero{
 
     @Override
     public int vida() {
-        return 500;
+        return 1000;
     }
 
     @Override
     public int ataque() {
-        return 150;
+        return 350;
     }
 
     @Override

@@ -4,9 +4,9 @@ import Edificaciones.centroMando;
 
 public class CaballoReal implements Carro{
 
-    int costo1= 200;
+    int costo1= 300;
     int costo2= 200;
-    int costo3= 100;
+    int costo3= 40;
 
     @Override
     public Carro carro(){
@@ -18,7 +18,7 @@ public class CaballoReal implements Carro{
 
     @Override
     public int vida() {
-        return 200;
+        return 400;
     }
 
     @Override

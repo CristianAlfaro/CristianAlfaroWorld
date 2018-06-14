@@ -5,8 +5,8 @@ import Edificaciones.centroMando;
 public class CarroOscuro implements Carro{
 
     int costo1= 200;
-    int costo2= 200;
-    int costo3= 100;
+    int costo2= 260;
+    int costo3= 60;
 
     @Override
     public Carro carro(){
@@ -18,12 +18,12 @@ public class CarroOscuro implements Carro{
 
     @Override
     public int vida() {
-        return 200;
+        return 600;
     }
 
     @Override
     public int ataque() {
-        return 50;
+        return 25;
     }
 
     @Override

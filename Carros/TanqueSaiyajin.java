@@ -4,9 +4,9 @@ import Edificaciones.centroMando;
 
 public class TanqueSaiyajin implements Carro{
 
-    int costo1= 200;
-    int costo2= 200;
-    int costo3= 100;
+    int costo1= 250;
+    int costo2= 300;
+    int costo3= 75;
 
     @Override
     public Carro carro(){
@@ -18,12 +18,12 @@ public class TanqueSaiyajin implements Carro{
 
     @Override
     public int vida() {
-        return 200;
+        return 400;
     }
 
     @Override
     public int ataque() {
-        return 50;
+        return 250;
     }
 
     @Override

@@ -243,12 +243,17 @@ public class Menu {
         ListaCarros LC2 = new ListaCarros();
 
         while (Cm1 != null && Cm2 != null) {
+            Cm1.mostrartope(Cm1,p1);
             EleccionJugador(p1, Cm1, LP1, LG1, LC1);
+            Cm2.mostrartope(Cm2,p2);
             EleccionJugador(p2, Cm2, LP2, LG2, LC2);
             turno= turno += 1;
             System.out.println("Turno: "+turno);
             LP1.RecogerRecursos(Cm1);
             LP2.RecogerRecursos(Cm2);
+            Cm1.mejorar(Cm1);
+            Cm1.mejorar(Cm1);
+            Cm2.mejorar(Cm2);
 
         }
 

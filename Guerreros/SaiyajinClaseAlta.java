@@ -3,9 +3,9 @@ package Guerreros;
 import Edificaciones.centroMando;
 
 public class SaiyajinClaseAlta implements Guerrero{
-    int costo1= 200;
-    int costo2= 200;
-    int costo3= 100;
+    int costo1= 175;
+    int costo2= 225;
+    int costo3= 20;
 
     @Override
     public boolean Sepuede(centroMando cm) {
@@ -35,12 +35,12 @@ public class SaiyajinClaseAlta implements Guerrero{
 
     @Override
     public int vida() {
-        return 250;
+        return 150;
     }
 
     @Override
     public int ataque() {
-        return 80;
+        return 125;
     }
 
     @Override

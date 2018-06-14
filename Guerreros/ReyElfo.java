@@ -4,9 +4,9 @@ import Edificaciones.centroMando;
 
 public class ReyElfo implements Guerrero{
 
-    int costo1= 200;
-    int costo2= 200;
-    int costo3= 100;
+    int costo1= 400;
+    int costo2= 400;
+    int costo3= 2500;
 
     @Override
     public boolean Sepuede(centroMando cm) {
@@ -36,12 +36,12 @@ public class ReyElfo implements Guerrero{
 
     @Override
     public int vida() {
-        return 800;
+        return 1600;
     }
 
     @Override
     public int ataque() {
-        return 90;
+        return 150;
     }
 
     @Override

@@ -26,7 +26,7 @@ public class Saiyajin implements Raza{
 
     @Override
     public void descripcion() {
-        System.out.printf("1-SAIYAJINES\nUna raza de extraterestres de lo mas poderosos que hay en el universo, un de ellos es capaz de mucho\n-sus edificaciones no son muy buenas\n-su <recurso3> se recoje rapido" +
+        System.out.printf("1-SAIYAJINES\nUna raza de extraterestres de lo mas poderosos que hay en el universo, un de ellos es capaz de mucho\n-sus edificaciones no son muy buenas\n-su <recurso2> se recoje rapido" +
                 "\n-Su super saiyajin da miedo de tanto poder de ataque\n\n");
     }
 

@@ -4,9 +4,9 @@ import Edificaciones.centroMando;
 
 public class SuperSaiyajin implements Guerrero{
 
-    int costo1= 200;
-    int costo2= 200;
-    int costo3= 100;
+    int costo1= 450;
+    int costo2= 400;
+    int costo3= 180;
 
     @Override
     public boolean Sepuede(centroMando cm) {
@@ -36,12 +36,12 @@ public class SuperSaiyajin implements Guerrero{
 
     @Override
     public int vida() {
-        return 400;
+        return 600;
     }
 
     @Override
     public int ataque() {
-        return 200;
+        return 600;
     }
 
     @Override

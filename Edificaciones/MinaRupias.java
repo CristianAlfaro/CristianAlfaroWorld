@@ -5,9 +5,9 @@ import Guerreros.Guerrero;
 public class MinaRupias implements edificacion {
 
 
-    int costo1= 100;
-    int costo2= 100;
-    int costo3= 150;
+    int costo1= 0;
+    int costo2= 150;
+    int costo3= 50;
 
     @Override
     public boolean Sepuede(centroMando cm) {

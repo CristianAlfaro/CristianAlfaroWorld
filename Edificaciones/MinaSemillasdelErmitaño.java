@@ -6,8 +6,8 @@ public class MinaSemillasdelErmitaño implements edificacion {
 
 
     int costo1= 300;
-    int costo2= 100;
-    int costo3= 30;
+    int costo2= 200;
+    int costo3= 0;
 
     @Override
     public boolean Sepuede(centroMando cm) {

@@ -5,9 +5,9 @@ import Guerreros.Guerrero;
 public class MinaRamen implements edificacion {
 
 
-    int costo1= 200;
-    int costo2= 100;
-    int costo3= 100;
+    int costo1= 230;
+    int costo2= 0;
+    int costo3= 30;
 
     @Override
     public boolean Sepuede(centroMando cm) {

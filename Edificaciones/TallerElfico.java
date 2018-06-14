@@ -4,7 +4,7 @@ import Guerreros.Guerrero;
 
 public class TallerElfico implements edificacion {
 
-    int costo1= 800;
+    int costo1= 300;
     int costo2= 200;
     int costo3= 100;
 

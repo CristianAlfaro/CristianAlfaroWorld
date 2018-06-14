@@ -6,7 +6,7 @@ public class SalaEntrenamiento implements edificacion {
 
     int costo1= 200;
     int costo2= 100;
-    int costo3= 100;
+    int costo3= 50;
 
     @Override
     public boolean Sepuede(centroMando cm) {

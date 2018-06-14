@@ -46,7 +46,7 @@ public class ElfoDeCaza implements Guerrero{
 
     @Override
     public String nombre() {
-        return "ELFA DE CAZA";
+        return "ELFO DE CAZA";
     }
 
 }

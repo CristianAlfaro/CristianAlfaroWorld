@@ -5,9 +5,9 @@ import Guerreros.Guerrero;
 public class TallerSheika implements edificacion {
 
 
-    int costo1= 100;
+    int costo1= 300;
     int costo2= 100;
-    int costo3= 200;
+    int costo3= 70;
 
     @Override
     public boolean Sepuede(centroMando cm) {

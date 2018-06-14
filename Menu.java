@@ -42,27 +42,27 @@ public class Menu {
     };
     int turno = 0;
 
-
+//INSTANCIA EL OBJETO MENU ASI SOLO EXISTE UNO EN TODO EL PROGRAMA
     public static Menu getInstance() {
         if (menu == null) {
             menu = new Menu();
         }
         return menu;
     }
-
+//TIENE LAS OPCIONES DE ELEGIR RAZA
     public void opciones() {
         System.out.println("CristianAlfaro World's");
         System.out.println("1- " + raza1.nombre1() + "\n2- " + raza2.nombre1() + "\n3- " + raza3.nombre1() + "\n");
     }
-
+//OPCIONES DEL MENU DE JUEGO
     public void opcionesJuego(Jugadores p3, centroMando Cm1) {
 
         System.out.println("--------------------" + p3.getNombre() + "----------------------");
         Cm1.Recursos(p3);
-        System.out.println("\n1-Construir Edificaciones\n2-Mostrar edificaciones\n3-Entrenar Guerreros\n4-Entrenar Carros\n5-Explorar\n6-Terminar turno");
+        System.out.println("\n1-Construir Edificaciones\n2-Mostrar edificaciones\n3-Entrenar Guerreros\n4-Entrenar Carros\n5-Atacar\n6-Terminar turno");
 
     }
-
+//PERMITE AL JUGADOR ELEGIR UNA RAZA Y VINCULARLA CON EL
     public void elegirRaza() {
         System.out.println("PARA COMENZAR DEBES ELEGIR UNA RAZA " + "--" + jugador1.getNombre() + "--");
         opciones();
@@ -128,14 +128,14 @@ public class Menu {
         }
 
     }
-
+//MUESTRA LA DESCRIPCION DE CADA RAZA
     public void Mostrar() {
         System.out.println("\nDebes elegir una de estas 3 razas, aqui estan sus fortalezas, escoje bien ya que no podras cambiarla una vez escogida\n");
         raza1.descripcion();
         raza2.descripcion();
         raza3.descripcion();
     }
-
+//INICIALIZA A LOS JUGADORES Y LES AGREGA EL NOMBRE
     public void InitJugadores() {
         String nombre1, nombre2;
         Scanner leer = new Scanner(System.in);
@@ -167,7 +167,7 @@ public class Menu {
             }
         }
     }
-
+//FUNCION QUE ELIJE QUIEN EMPIEZA ALEATORIAMENTE
     public Jugadores QuienEmpieza() {
         Random empieza = new Random();
         int n = empieza.nextInt(2) + 1;
@@ -180,8 +180,9 @@ public class Menu {
         }
 
     }
-
-    public void EleccionJugador(Jugadores p, centroMando cm, ListaEdificaciones LP, ListaGuerreros LG, ListaCarros LC) {
+//ELIJE UNA POCION DEL MENU DE JUEGO
+    public void EleccionJugador(Jugadores p, centroMando cm, ListaEdificaciones LP, ListaGuerreros LG,
+                                ListaCarros LC,ListaEdificaciones LP2,ListaGuerreros LG2,ListaCarros LC2, centroMando cm2, Jugadores p2) {
         Scanner Hacer = new Scanner(System.in);
         int hola;
         do {
@@ -194,24 +195,39 @@ public class Menu {
                     case 1:
                         System.out.println("QUE QUISIERAS CONSTRUIR\n");
                         cm.Recursos(p);
+                        //MANDAMOS A CONSTRUIR UNA EDIFICACION PARA UN DETERMINADO JUGADOR CON DETERMINADA RAZA
                         cons.EdifConstructor(p,LP,cm);
                         break;
                     case 2:
-                        System.out.println("ESTAS SON TUS CONSTRUCCIONES \n");
-                        LP.mostrar();
-                        break;
+                        if(LP.recorrer()){
+                            System.out.println("ESTAS SON TUS CONSTRUCCIONES Y TROPAS \n");
+                            System.out.println("---------------EDIFICACIONES------------------");
+                            LP.mostrar();
+                            System.out.println("---------------GUERREROS------------------");
+                            LG.mostrar();
+                            System.out.println("---------------CARROS------------------");
+                            LC.mostrar();
+                            break;
+                        }else {
+                            System.out.println("AUN NO HAS CONSTRUIDO NADA");
+                            break;
+                        }
                     case 3:
                         System.out.println("QUIERES ENTRENAR ALGO\n");
+                        //MANDAMOS A ENTRENAR UN GUERRERO PARA UN DETERMINADO JUGADOR CON DETERMINADA RAZA
                         cons.WarConstructor(p,LG,cm,LP);
                         break;
                     case 4:
                         System.out.println("QUIERES ENTRENAR ALGO\n");
+                        //MANDAMOS A CONSTRUIR UN CARRO PARA UN DETERMINADO JUGADOR CON DETERMINADA RAZA
                         cons.CarConstructor(p,LC,cm,LP);
                         break;
                     case 5:
-                        System.out.println("QUE HACEMOS GENERAL\n");
-                        LG.mostrar();
-                        LC.mostrar();
+                        if(LG.recorrer() || LC.recorrer()) {
+                            atacar(cm, p, LP2, LC, LG, cm2, p2);
+                        }else{
+                            System.out.println("NECESITAS ENTRENAR TROPAS O CARROS ANTES DE ATACAR");
+                        }
                         break;
                     case 6:
                         System.out.println("FIN DEL TURNO\n\n");
@@ -230,7 +246,20 @@ public class Menu {
 
 
     }
+//FUNCION QUE HACE QUE CADA TORPA ATAQUE UN EDIFICIO
+    public void atacar(centroMando cm, Jugadores p1, ListaEdificaciones lp2, ListaCarros lc, ListaGuerreros lg, centroMando cm2, Jugadores p2){
+        if(lp2.recorrer()) {
+            if(lc.recorrer() || lg.recorrer()){
+                System.out.println("ESTAMOS PREPARANDONOS PARA EL ATAQUE, QUE TROPA QUIERES MANDAR AL CAMPO ENEMIGO\n");
+            }else{
+                System.out.println("DEBES CREAR TROPAS ANTES DE ATACAR");
+            }
+        }else{
+            System.out.println("EL ENEMIGO NO TIENE NADA CONSTRUIDO AUN");
+        }
 
+    }
+//INICIA TODAS LAS FUNCIONES
     public void MenuJuego() {
         p1 = QuienEmpieza();
         centroMando Cm1 = new centroMando();
@@ -244,16 +273,14 @@ public class Menu {
 
         while (Cm1 != null && Cm2 != null) {
             Cm1.mostrartope(Cm1,p1);
-            EleccionJugador(p1, Cm1, LP1, LG1, LC1);
+            EleccionJugador(p1, Cm1, LP1, LG1, LC1, LP2, LG2, LC2, Cm2,p2);
             Cm2.mostrartope(Cm2,p2);
-            EleccionJugador(p2, Cm2, LP2, LG2, LC2);
+            EleccionJugador(p2, Cm2, LP2, LG2, LC2, LP1, LG1 ,LC1, Cm1, p1);
             turno= turno += 1;
             System.out.println("Turno: "+turno);
             LP1.RecogerRecursos(Cm1);
             LP2.RecogerRecursos(Cm2);
-            Cm1.mejorar(Cm1);
-            Cm1.mejorar(Cm1);
-            Cm2.mejorar(Cm2);
+
 
         }
 

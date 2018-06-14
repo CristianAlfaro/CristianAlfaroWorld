@@ -12,9 +12,9 @@ public class centroMando implements edificacion {
     Raza raza2 = new Hylianos();
     Raza raza3 = new ElfosOscuros();
     public int vida=3000;
-    public int recurso1 = 400;
-    public int recurso2 = 400;
-    public int recurso3 = 100;
+    public int recurso1 = 500;
+    public int recurso2 = 500;
+    public int recurso3 = 150;
 
     public int recurso1tope = 10000;
     public int recurso2tope = 5000;

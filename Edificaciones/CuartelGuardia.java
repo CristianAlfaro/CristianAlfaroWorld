@@ -8,8 +8,8 @@ import Razas.*;
 
 public class CuartelGuardia implements edificacion {
 
-    int costo1= 200;
-    int costo2= 200;
+    int costo1= 100;
+    int costo2= 100;
     int costo3= 100;
 
     @Override

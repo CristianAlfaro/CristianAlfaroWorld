@@ -6,8 +6,8 @@ public class MinaMaterialMaestro implements edificacion {
 
 
     int costo1= 200;
-    int costo2= 100;
-    int costo3= 50;
+    int costo2= 250;
+    int costo3= 00;
 
     @Override
     public boolean Sepuede(centroMando cm) {

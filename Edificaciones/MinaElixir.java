@@ -5,9 +5,9 @@ import Guerreros.Guerrero;
 public class MinaElixir implements edificacion {
 
 
-    int costo1= 300;
-    int costo2= 50;
-    int costo3= 50;
+    int costo1= 0;
+    int costo2= 130;
+    int costo3= 60;
 
     @Override
     public boolean Sepuede(centroMando cm) {

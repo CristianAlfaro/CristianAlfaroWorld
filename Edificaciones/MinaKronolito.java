@@ -5,8 +5,8 @@ import Guerreros.Guerrero;
 public class MinaKronolito implements edificacion {
 
 
-    int costo1= 100;
-    int costo2= 50;
+    int costo1= 200;
+    int costo2= 0;
     int costo3= 50;
 
     @Override

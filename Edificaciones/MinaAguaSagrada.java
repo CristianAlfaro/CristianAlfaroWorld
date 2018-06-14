@@ -4,8 +4,8 @@ import Guerreros.Guerrero;
 
 public class MinaAguaSagrada implements edificacion {
     int costo1 = 200;
-    int costo2 = 100;
-    int costo3 = 50;
+    int costo2 = 200;
+    int costo3 = 0;
 
 
     @Override

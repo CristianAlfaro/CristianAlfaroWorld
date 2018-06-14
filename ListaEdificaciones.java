@@ -11,31 +11,46 @@ public class ListaEdificaciones {
         edificacions = new ArrayList<>();
     }
 
-    public void add(edificacion edif){
+    public void add(edificacion edif) {
 
         edificacions.add(edif);
     }
 
     public void mostrar() {
         for (edificacion e : edificacions) {
-            System.out.println(e.nombre());
+            System.out.println(e.nombre()+" VIDA: "+e.vida());
         }
     }
 
-    public void RecogerRecursos (centroMando cm){
-        for(edificacion e : edificacions){
+    public void RecogerRecursos(centroMando cm) {
+        for (edificacion e : edificacions) {
             e.funcion(cm);
         }
     }
 
-    public String buscar (String busca){
-        for(edificacion e : edificacions){
-            if(e.nombre() == busca){
-                return  e.nombre();
+    public String buscar(String busca) {
+        for (edificacion e : edificacions) {
+            if (e.nombre() == busca) {
+                return e.nombre();
             }
         }
-         return null;
+        return null;
+    }
+
+    public boolean recorrer() {
+        int cuantos = 0;
+        for (edificacion e : edificacions) {
+
+            if (e != null) {
+                cuantos += 1;
+            }
+        }
+        if (cuantos == 0) {
+            return false;
+        } else {
+            return true;
         }
     }
+}
 
 

@@ -4,8 +4,8 @@ import Guerreros.Guerrero;
 
 public class TallerSaiyan implements edificacion {
 
-    int costo1= 100;
-    int costo2= 10;
+    int costo1= 200;
+    int costo2= 100;
     int costo3= 70;
 
     @Override

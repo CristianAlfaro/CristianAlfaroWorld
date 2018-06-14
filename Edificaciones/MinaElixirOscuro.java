@@ -6,8 +6,8 @@ public class MinaElixirOscuro implements edificacion {
 
 
     int costo1= 200;
-    int costo2= 50;
-    int costo3= 150;
+    int costo2= 0;
+    int costo3= 70;
 
     @Override
     public boolean Sepuede(centroMando cm) {

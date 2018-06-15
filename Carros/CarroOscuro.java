@@ -30,10 +30,7 @@ public class CarroOscuro implements Carro{
     @Override
     public void ataque(edificacion edif, int vida) {
         int at= ataque();
-        if(edif.vida() >= at){
-            edif.setVida(edif.getVida()-at);
-
-        }
+        edif.setVida(edif.getVida()-at);
     }
 
     @Override

@@ -270,23 +270,23 @@ public class Menu {
                                 Guerrero war;
                                 war = lg.buscar(opcwar);
                                 System.out.println(war.nombre() + " ESTA LISTO PARA EL ATAQUE JEFE\n ....DE CAMINO");
-                                System.out.println("QUE EDIFICACION ENEMIGA DECEAS ATACAR?\n");
+                                System.out.println("\nQUE EDIFICACION ENEMIGA DECEAS ATACAR?\n");
                                 lp2.mostrar();
-                                log= lp2.longitud();
+                                log = lp2.longitud();
                                 opcwar = opc2.nextInt();
                                 if (opcwar <= log) {
                                     edificacion edif;
                                     edif = lp2.buscar(opcwar);
                                     System.out.println(edif.nombre() + " SERA ATACADA POR " + war.nombre());
-                                    war.ataque(edif,1);
-                                    if(edif.getVida() <= 0){
+                                    war.ataque(edif, 1);
+                                    if (edif.getVida() <= 0) {
                                         System.out.println("LA ESTRUCTURA HA SIDO ELIMINADA");
-                                        lp2.podar(0);
+                                        lp2.mostrar();
                                     }
-                                    hola = 6;
-                                }else {
-                                System.out.println("LO SINETO CAPI EL ENEMIGO NO TIENE ESA CONSTRUCCION");
-                            }
+                                    hola = 7;
+                                } else {
+                                    System.out.println("LO SINETO CAPI EL ENEMIGO NO TIENE ESA CONSTRUCCION");
+                                }
                                 return;
                             } else {
                                 System.out.println("NO TIENES A ESE GUERRERO");
@@ -308,19 +308,19 @@ public class Menu {
                                 System.out.println(car.nombre() + " ESTA LISTO PARA EL ATAQUE JEFE\n ....DE CAMINO");
                                 System.out.println("QUE EDIFICACION ENEMIGA DECEAS ATACAR?\n");
                                 lp2.mostrar();
-                                log= lp2.longitud();
+                                log = lp2.longitud();
                                 opcwar = opc2.nextInt();
                                 if (opcwar <= log) {
                                     edificacion edif;
                                     edif = lp2.buscar(opcwar);
                                     System.out.println(edif.nombre() + " SERA ATACADA POR " + car.nombre());
-                                    car.ataque(edif,1);
-                                    if(edif.getVida() <= 0){
+                                    car.ataque(edif, 1);
+                                    if (edif.getVida() <= 0) {
                                         System.out.println("LA ESTRUCTURA HA SIDO ELIMINADA");
-                                        lp2.podar(0);
+                                        lp2.mostrar();
                                     }
-                                    hola = 6;
-                                }else {
+                                    hola = 7;
+                                } else {
                                     System.out.println("LO SINETO CAPI EL ENEMIGO NO TIENE ESA CONSTRUCCION");
                                 }
                                 return;
@@ -328,24 +328,21 @@ public class Menu {
                                 System.out.println("AUN NO TIENES CARROS ENTRENADOS");
                                 return;
                             }
-                        } else if (opc == 3) {
-                            System.out.println("ENTENDIDO JEFE, AVISENOS EN EL MOMENTO PERFECTO");
-                            return;
-                        } else {
-                            System.out.println("INGRESE UNA DE LAS OPCIONES VALIDAS");
-                            return;
                         }
+                    } else if (opc == 3) {
+                        System.out.println("ENTENDIDO JEFE, AVISENOS EN EL MOMENTO PERFECTO");
+                        return;
+                    } else {
+                        System.out.println("INGRESE UNA DE LAS OPCIONES VALIDAS");
+                        return;
                     }
-                    while (opc != 3) ;
-
-                }while(true);
+                }while (opc != 3) ;
             }else{
                 System.out.println("DEBES CREAR TROPAS ANTES DE ATACAR");
             }
         }else{
             System.out.println("EL ENEMIGO NO TIENE NADA CONSTRUIDO AUN");
         }
-
     }
 //INICIA TODAS LAS FUNCIONES
     public void MenuJuego() {

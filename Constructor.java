@@ -317,7 +317,6 @@ public class Constructor {
             }
         }
 
-
     public void ConstruirCar(int opcion, ListaCarros LC1, centroMando cm, ListaEdificaciones LP) {
         if (opcion == 1) {
             if (LP.buscar(ed4.nombre()) == ed4.nombre()) {

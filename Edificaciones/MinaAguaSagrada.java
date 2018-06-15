@@ -6,7 +6,16 @@ public class MinaAguaSagrada implements edificacion {
     int costo1 = 200;
     int costo2 = 200;
     int costo3 = 0;
+    int vida= 400;
 
+    @Override
+    public int getVida() {
+        return vida;
+    }
+    @Override
+    public void setVida(int vida) {
+        this.vida = vida;
+    }
 
     @Override
     public String nombre() {
@@ -27,7 +36,7 @@ public class MinaAguaSagrada implements edificacion {
 
     @Override
     public int vida() {
-        return 400;
+        return vida;
     }
 
     public String recurso() {

@@ -22,6 +22,7 @@ public class Menu {
     Jugadores p1;
     Jugadores p2;
     int turno = 0;
+    int hola;
 
 //INSTANCIA EL OBJETO MENU ASI SOLO EXISTE UNO EN TODO EL PROGRAMA
     public static Menu getInstance() {
@@ -38,7 +39,8 @@ public class Menu {
 //OPCIONES DEL MENU DE JUEGO
     public void opcionesJuego(Jugadores p3, centroMando Cm1) {
 
-        System.out.println("--------------------" + p3.getNombre() + "----------------------");
+        System.out.println("\n\n-----------------------------------------------------------------\n" +
+                "--------------------" + p3.getNombre() + "----------------------\n-----------------------------------------------------------------");
         Cm1.Recursos(p3);
         System.out.println("\n1-Construir Edificaciones\n2-Mostrar edificaciones\n3-Entrenar Guerreros\n4-Entrenar Carros\n5-Atacar\n6-Terminar turno");
 
@@ -164,7 +166,7 @@ public class Menu {
 //ELIJE UNA POCION DEL MENU DE JUEGO
     public void EleccionJugador(Jugadores p, centroMando cm, ListaEdificaciones LP, ListaGuerreros LG, ListaCarros LC,ListaEdificaciones LP2,ListaGuerreros LG2,ListaCarros LC2, centroMando cm2, Jugadores p2) {
         Scanner Hacer = new Scanner(System.in);
-        int hola;
+
         do {
             opcionesJuego(p, cm);
             System.out.println("\n\n---");
@@ -240,7 +242,7 @@ public class Menu {
                     opc = opc1.nextInt();
                     if (opc == 1) {
                         if (lg.recorrer()) {
-                            System.out.println("AQUI ESTAN TUS SOLDADOS, ELIGE QUIENES ATACARAN\n-----------------------------------------");
+                            System.out.println("AQUI ESTAN TUS SOLDADOS, ELIGE QUIENES ATACARAN\nESO SI DESPUES DE ATACAR TU TURNO ACABARA\n-----------------------------------------");
                             lg.mostrar();
                             log = lg.longitud();
                             opcwar = opc2.nextInt();
@@ -255,7 +257,9 @@ public class Menu {
                                 if (opcwar <= log) {
                                     edificacion edif;
                                     edif = lp2.buscar(opcwar);
-                                    System.out.println(edif.nombre() + "SERE ATACADA POR " + war.nombre());
+                                    System.out.println(edif.nombre() + " SERA ATACADA POR " + war.nombre());
+                                    war.ataque(edif,1);
+                                    hola = 6;
                                 }else {
                                 System.out.println("LO SINETO CAPI EL ENEMIGO NO TIENE ESA CONSTRUCCION");
                             }
@@ -270,7 +274,7 @@ public class Menu {
 
                     } else if (opc == 2) {
                         if (lc.recorrer()) {
-                            System.out.println("AQUI ESTAN TUS CARROS, ELIGE QUIENES ATACARAN\n-----------------------------------------");
+                            System.out.println("AQUI ESTAN TUS CARROS, ELIGE QUIENES ATACARAN\nESO SI DESPUES DE ATACAR TU TURNO ACABARA\n-----------------------------------------");
                             lc.mostrar();
                             log = lc.longitud();
                             opcwar = opc2.nextInt();
@@ -285,7 +289,9 @@ public class Menu {
                                 if (opcwar <= log) {
                                     edificacion edif;
                                     edif = lp2.buscar(opcwar);
-                                    System.out.println(edif.nombre() + "SERE ATACADA POR " + car.nombre());
+                                    System.out.println(edif.nombre() + " SERA ATACADA POR " + car.nombre());
+                                    car.ataque(edif,1);
+                                    hola = 6;
                                 }else {
                                     System.out.println("LO SINETO CAPI EL ENEMIGO NO TIENE ESA CONSTRUCCION");
                                 }
@@ -330,8 +336,11 @@ public class Menu {
             EleccionJugador(p2, Cm2, LP2, LG2, LC2, LP1, LG1 ,LC1, Cm1, p1);
             turno= turno += 1;
             System.out.println("Turno: "+turno);
+            LP1.podar();
+            LP2.podar();
             LP1.RecogerRecursos(Cm1);
             LP2.RecogerRecursos(Cm2);
+
 
 
         }

@@ -8,6 +8,7 @@ public class MinaKronolito implements edificacion {
     int costo1= 200;
     int costo2= 0;
     int costo3= 50;
+    int vida = 300;
 
     @Override
     public boolean Sepuede(centroMando cm) {
@@ -27,7 +28,7 @@ public class MinaKronolito implements edificacion {
 
     @Override
     public int vida() {
-        return 300;
+        return vida;
     }
 
     public String recurso(){
@@ -51,5 +52,14 @@ public class MinaKronolito implements edificacion {
         System.out.println(
                 "\nRUPIAS: " + costo1 + "\nKRONOLITO: " + costo2 + "\nMATERIAL MAESTRO: " + costo3
         );
+    }
+
+    @Override
+    public int getVida() {
+        return vida;
+    }
+    @Override
+    public void setVida(int vida) {
+        this.vida = vida;
     }
 }

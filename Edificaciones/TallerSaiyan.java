@@ -7,6 +7,7 @@ public class TallerSaiyan implements edificacion {
     int costo1= 200;
     int costo2= 100;
     int costo3= 70;
+    int vida = 500;
 
     @Override
     public boolean Sepuede(centroMando cm) {
@@ -26,7 +27,7 @@ public class TallerSaiyan implements edificacion {
 
     @Override
     public int vida() {
-        return 500;
+        return vida;
     }
 
     @Override
@@ -44,5 +45,14 @@ public class TallerSaiyan implements edificacion {
         System.out.println(
                 "\nARROZ: " + costo1 + "\nRAMEN: " + costo2 + "\nSEMILLAS DEL ERMITAÑO: " + costo3
         );
+    }
+
+    @Override
+    public int getVida() {
+        return vida;
+    }
+    @Override
+    public void setVida(int vida) {
+        this.vida = vida;
     }
 }

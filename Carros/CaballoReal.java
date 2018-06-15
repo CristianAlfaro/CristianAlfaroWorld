@@ -1,6 +1,7 @@
 package Carros;
 
 import Edificaciones.centroMando;
+import Edificaciones.edificacion;
 
 public class CaballoReal implements Carro{
 
@@ -24,6 +25,15 @@ public class CaballoReal implements Carro{
     @Override
     public int ataque() {
         return 50;
+    }
+
+    @Override
+    public void ataque(edificacion edif, int vida) {
+        int at= ataque();
+        if(edif.vida() >= at){
+            edif.setVida(edif.getVida()-at);
+
+        }
     }
 
     @Override

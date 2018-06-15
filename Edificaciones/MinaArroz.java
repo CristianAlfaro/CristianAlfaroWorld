@@ -8,6 +8,7 @@ public class MinaArroz implements edificacion {
     int costo1 = 0;
     int costo2 = 170;
     int costo3 = 20;
+    int vida = 200;
 
     @Override
     public boolean Sepuede(centroMando cm) {
@@ -28,7 +29,7 @@ public class MinaArroz implements edificacion {
 
     @Override
     public int vida() {
-        return 200;
+        return vida;
     }
 
     public String recurso() {
@@ -52,5 +53,14 @@ public class MinaArroz implements edificacion {
         System.out.println(
                 "\nARROZ: " + costo1 + "\nRAMEN: " + costo2 + "\nSEMILLAS DEL ERMITAÑO: " + costo3
         );
+    }
+
+    @Override
+    public int getVida() {
+        return vida;
+    }
+    @Override
+    public void setVida(int vida) {
+        this.vida = vida;
     }
 }

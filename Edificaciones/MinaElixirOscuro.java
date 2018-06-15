@@ -8,6 +8,7 @@ public class MinaElixirOscuro implements edificacion {
     int costo1= 200;
     int costo2= 0;
     int costo3= 70;
+    int vida = 300;
 
     @Override
     public boolean Sepuede(centroMando cm) {
@@ -27,7 +28,7 @@ public class MinaElixirOscuro implements edificacion {
 
     @Override
     public int vida() {
-        return 300;
+        return vida;
     }
 
     public String recurso(){
@@ -51,5 +52,14 @@ public class MinaElixirOscuro implements edificacion {
         System.out.println(
                 "\nELIXIR: " + costo1 + "\nELIXIR OSCURO: " + costo2 + "\nAGUA SAGRADA: " + costo3
         );
+    }
+
+    @Override
+    public int getVida() {
+        return vida;
+    }
+    @Override
+    public void setVida(int vida) {
+        this.vida = vida;
     }
 }

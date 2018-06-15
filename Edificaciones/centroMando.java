@@ -26,22 +26,6 @@ public class centroMando implements edificacion {
 
     public boolean juego = true;
 
-/*
-    public void mostrartope(centroMando cm, Jugadores p1){
-        if (p1.getRazaN() == raza1.nombre1()) {
-            System.out.println("\nLOS RECURSOS MAXIMOS QUE TU CENTRO DE MANDO PUEDE TENER SON:\n");
-            raza1.recursos(recurso1tope, recurso2tope, recurso3tope);
-        } else if (p1.getRazaN() == raza2.nombre1()) {
-            System.out.println("\nLOS RECURSOS MAXIMOS QUE TU CENTRO DE MANDO PUEDE TENER SON:\n");
-            raza2.recursos(recurso1tope, recurso2tope, recurso3tope);
-        } else if (p1.getRazaN() == raza3.nombre1()) {
-            System.out.println("\nLOS RECURSOS MAXIMOS QUE TU CENTRO DE MANDO PUEDE TENER SON:\n");
-            raza3.recursos(recurso1tope, recurso2tope, recurso3tope);
-
-        }
-    }
-    */
-
     public void mejorar(centroMando cm){
         cm.recurso1tope= cm.recurso1tope + 1000;
         cm.recurso2tope= cm.recurso2tope +500;
@@ -73,11 +57,21 @@ public class centroMando implements edificacion {
     public Guerrero funcionWar(centroMando cm) {
         return null;
     }
+
     @Override
     public void costo(centroMando cm) {
 
     }
 
+    @Override
+    public int getVida() {
+        return 0;
+    }
+
+    @Override
+    public void setVida(int vida) {
+
+    }
 
     public void Recursos(Jugadores p1) {
         if (p1.getRazaN() == raza1.nombre1()) {

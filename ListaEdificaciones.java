@@ -77,6 +77,19 @@ public class ListaEdificaciones {
             return cuantos;
         }
     }
+
+    public void podar(){
+        int i= 0;
+        for (edificacion e : edificacions) {
+            if (e.getVida() <= 0) {
+                edificacions.remove(i);
+            }else {
+                i+=1;
+            }
+
+        }
+
+    }
 }
 
 

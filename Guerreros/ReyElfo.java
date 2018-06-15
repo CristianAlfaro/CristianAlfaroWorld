@@ -41,10 +41,12 @@ public class ReyElfo implements Guerrero{
     }
 
     @Override
-    public void ataque(edificacion edificacion) {
-
+    public void ataque(edificacion edif,int vida) {
+        int at= ataque();
+        edif.setVida(edif.getVida()-at);
     }
 
+    @Override
     public int ataque() {
         return 150;
     }

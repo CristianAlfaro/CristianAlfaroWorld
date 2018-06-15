@@ -7,6 +7,7 @@ public class TallerElfico implements edificacion {
     int costo1= 300;
     int costo2= 200;
     int costo3= 100;
+    int vida = 700;
 
     @Override
     public boolean Sepuede(centroMando cm) {
@@ -27,7 +28,7 @@ public class TallerElfico implements edificacion {
 
     @Override
     public int vida() {
-        return 700;
+        return vida;
     }
 
     @Override
@@ -45,5 +46,14 @@ public class TallerElfico implements edificacion {
         System.out.println(
                 "\nELIXIR: " + costo1 + "\nELIXIR OSCURO: " + costo2 + "\nAGUA SAGRADA: " + costo3
         );
+    }
+
+    @Override
+    public int getVida() {
+        return vida;
+    }
+    @Override
+    public void setVida(int vida) {
+        this.vida = vida;
     }
 }

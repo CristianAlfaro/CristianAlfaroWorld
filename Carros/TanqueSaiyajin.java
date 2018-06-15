@@ -1,6 +1,7 @@
 package Carros;
 
 import Edificaciones.centroMando;
+import Edificaciones.edificacion;
 
 public class TanqueSaiyajin implements Carro{
 
@@ -24,6 +25,15 @@ public class TanqueSaiyajin implements Carro{
     @Override
     public int ataque() {
         return 250;
+    }
+
+    @Override
+    public void ataque(edificacion edif, int vida) {
+        int at= ataque();
+        if(edif.vida() >= at){
+            edif.setVida(edif.getVida()-at);
+
+        }
     }
 
     @Override

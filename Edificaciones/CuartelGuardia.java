@@ -11,6 +11,7 @@ public class CuartelGuardia implements edificacion {
     int costo1= 100;
     int costo2= 100;
     int costo3= 100;
+    int vida = 500;
 
     @Override
     public boolean Sepuede(centroMando cm) {
@@ -30,7 +31,7 @@ public class CuartelGuardia implements edificacion {
 
     @Override
     public int vida() {
-        return 500;
+        return vida;
     }
 
     @Override
@@ -48,6 +49,15 @@ public class CuartelGuardia implements edificacion {
         System.out.println(
                 "\nRUPIAS: "+ costo1+"\nKRONOLITO: "+costo2+"\nMATERIAL MAESTRO: "+costo3
         );
+    }
+
+    @Override
+    public int getVida() {
+        return vida;
+    }
+    @Override
+    public void setVida(int vida) {
+        this.vida = vida;
     }
 
 }

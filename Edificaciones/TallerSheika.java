@@ -8,6 +8,7 @@ public class TallerSheika implements edificacion {
     int costo1= 300;
     int costo2= 100;
     int costo3= 70;
+    int vida = 600;
 
     @Override
     public boolean Sepuede(centroMando cm) {
@@ -27,7 +28,7 @@ public class TallerSheika implements edificacion {
 
     @Override
     public int vida() {
-        return 600;
+        return vida;
     }
 
     @Override
@@ -45,5 +46,14 @@ public class TallerSheika implements edificacion {
         System.out.println(
                 "\nRUPIAS: " + costo1 + "\nKRONOLITO: " + costo2 + "\nMATERIAL MAESTRO: " + costo3
         );
+    }
+
+    @Override
+    public int getVida() {
+        return vida;
+    }
+    @Override
+    public void setVida(int vida) {
+        this.vida = vida;
     }
 }

@@ -10,5 +10,7 @@ public interface edificacion {
     public void funcion(centroMando cm);
     public Guerrero funcionWar(centroMando cm);
     public void costo(centroMando cm);
+    public int getVida();
+    public void setVida(int vida);
     //public void Tope(int r1,int r2, int r3);
 }

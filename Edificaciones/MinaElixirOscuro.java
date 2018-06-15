@@ -37,7 +37,7 @@ public class MinaElixirOscuro implements edificacion {
 
     @Override
     public void funcion(centroMando cm) {
-        int recur = 75;
+        int recur = 125;
         cm.recurso3= cm.recurso3 + recur;
 
     }

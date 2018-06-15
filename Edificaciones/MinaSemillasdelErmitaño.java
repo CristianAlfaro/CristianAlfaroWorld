@@ -36,7 +36,7 @@ public class MinaSemillasdelErmitaño implements edificacion {
 
     @Override
     public void funcion(centroMando cm) {
-        int recur = 25;
+        int recur = 35;
         cm.recurso3= cm.recurso3 + recur;
 
     }

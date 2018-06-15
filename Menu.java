@@ -42,7 +42,8 @@ public class Menu {
         System.out.println("\n\n-----------------------------------------------------------------\n" +
                 "--------------------" + p3.getNombre() + "----------------------\n-----------------------------------------------------------------");
         Cm1.Recursos(p3);
-        System.out.println("\n1-Construir Edificaciones\n2-Mostrar edificaciones\n3-Entrenar Guerreros\n4-Entrenar Carros\n5-Atacar\n6-Mejorar CENTRO DE MANDO\n7-Terminar turno");
+        System.out.println("\n1-Construir Edificaciones\n2-Mostrar edificaciones\n3-Entrenar Guerreros\n4-Entrenar Carros\n" +
+                "5-Atacar\n6-Mejorar CENTRO DE MANDO\n7-Terminar turno\n\n8-RENDIRSE");
 
     }
 //PERMITE AL JUGADOR ELEGIR UNA RAZA Y VINCULARLA CON EL
@@ -164,7 +165,7 @@ public class Menu {
 
     }
 //ELIJE UNA POCION DEL MENU DE JUEGO
-    public void EleccionJugador(Jugadores p, centroMando cm, ListaEdificaciones LP, ListaGuerreros LG, ListaCarros LC,ListaEdificaciones LP2,ListaGuerreros LG2,ListaCarros LC2, centroMando cm2, Jugadores p2) {
+    public centroMando EleccionJugador(Jugadores p, centroMando cm, ListaEdificaciones LP, ListaGuerreros LG, ListaCarros LC,ListaEdificaciones LP2,ListaGuerreros LG2,ListaCarros LC2, centroMando cm2, Jugadores p2) {
         Scanner Hacer = new Scanner(System.in);
 
         do {
@@ -206,7 +207,7 @@ public class Menu {
                         break;
                     case 5:
                         if(LG.recorrer() || LC.recorrer()) {
-                            atacar(cm, p, LP2, LC, LG, cm2, p2);
+                            LP2 = atacar(cm, p, LP2, LC, LG, cm2, p2);
                         }else{
                             System.out.println("NECESITAS ENTRENAR TROPAS O CARROS ANTES DE ATACAR");
                         }
@@ -221,7 +222,6 @@ public class Menu {
                             hola = Hacer.nextInt();
                             if (hola == 1){
                                 cm.mejorar(cm);
-                                System.out.println("EL CENTRO DE MANDO SE HA MEJORADO!!!!");
                             }else if(hola == 2) {
                                 System.out.println("ESTA BIEN MEJORALO LUEGO");
                             }else{
@@ -234,6 +234,17 @@ public class Menu {
                         System.out.println("FIN DEL TURNO\n\n");
                         break;
 
+                    case 8:
+                        int seguro;
+                        Scanner seguridad = new Scanner(System.in);
+                        System.out.println("ESTAS SEGURO DE QUERER RENDIRTE?\n1-SI\n2-NO\n");
+                        seguro = seguridad.nextInt();
+                        if(seguro == 1){
+                            cm = null;
+                        }
+                        hola = 7;
+                        break;
+
                     default:
                         System.out.println("INGRESE OPCION VALIDA\n");
                 }
@@ -244,12 +255,13 @@ public class Menu {
         } while (cm != null && hola != 7);
         if (cm == null) {
             System.out.println("FIN DEL JUEGOOOO");
+            return cm;
         }
 
-
+        return cm;
     }
 //FUNCION QUE HACE QUE CADA TORPA ATAQUE UN EDIFICIO
-    public void atacar(centroMando cm, Jugadores p1, ListaEdificaciones lp2, ListaCarros lc, ListaGuerreros lg, centroMando cm2, Jugadores p2){
+    public ListaEdificaciones atacar(centroMando cm, Jugadores p1, ListaEdificaciones lp2, ListaCarros lc, ListaGuerreros lg, centroMando cm2, Jugadores p2){
         if(lp2.recorrer()) {
             if(lc.recorrer() || lg.recorrer()) {
                 System.out.println("ESTAMOS PREPARANDONOS PARA EL ATAQUE, QUE TROPA QUIERES MANDAR AL CAMPO ENEMIGO\n1- SOLDADO\n2- CARRO DE BATALLA\n" +
@@ -281,16 +293,17 @@ public class Menu {
                                     war.ataque(edif, 1);
                                     if (edif.getVida() <= 0) {
                                         System.out.println("LA ESTRUCTURA HA SIDO ELIMINADA");
-                                        lp2.mostrar();
+                                        lp2.podar(0);
+                                        return lp2;
                                     }
                                     hola = 7;
                                 } else {
                                     System.out.println("LO SINETO CAPI EL ENEMIGO NO TIENE ESA CONSTRUCCION");
                                 }
-                                return;
+                                return lp2;
                             } else {
                                 System.out.println("NO TIENES A ESE GUERRERO");
-                                return;
+                                return lp2;
                             }
                         } else {
                             System.out.println("AUN NO TIENES SOLDADOS ENTRENADOS");
@@ -317,24 +330,25 @@ public class Menu {
                                     car.ataque(edif, 1);
                                     if (edif.getVida() <= 0) {
                                         System.out.println("LA ESTRUCTURA HA SIDO ELIMINADA");
-                                        lp2.mostrar();
+                                        lp2.podar(0);
+                                        return lp2;
                                     }
                                     hola = 7;
                                 } else {
                                     System.out.println("LO SINETO CAPI EL ENEMIGO NO TIENE ESA CONSTRUCCION");
                                 }
-                                return;
+                                return lp2;
                             } else {
                                 System.out.println("AUN NO TIENES CARROS ENTRENADOS");
-                                return;
+                                return lp2;
                             }
                         }
                     } else if (opc == 3) {
                         System.out.println("ENTENDIDO JEFE, AVISENOS EN EL MOMENTO PERFECTO");
-                        return;
+                        return lp2;
                     } else {
                         System.out.println("INGRESE UNA DE LAS OPCIONES VALIDAS");
-                        return;
+                        return lp2;
                     }
                 }while (opc != 3) ;
             }else{
@@ -343,6 +357,7 @@ public class Menu {
         }else{
             System.out.println("EL ENEMIGO NO TIENE NADA CONSTRUIDO AUN");
         }
+        return lp2;
     }
 //INICIA TODAS LAS FUNCIONES
     public void MenuJuego() {
@@ -356,16 +371,20 @@ public class Menu {
         ListaCarros LC1 = new ListaCarros();
         ListaCarros LC2 = new ListaCarros();
 
-        while (Cm1 != null && Cm2 != null) {
-            EleccionJugador(p1, Cm1, LP1, LG1, LC1, LP2, LG2, LC2, Cm2,p2);
-            EleccionJugador(p2, Cm2, LP2, LG2, LC2, LP1, LG1 ,LC1, Cm1, p1);
+        do {
+            Cm1= EleccionJugador(p1, Cm1, LP1, LG1, LC1, LP2, LG2, LC2, Cm2,p2);
+            Cm2= EleccionJugador(p2, Cm2, LP2, LG2, LC2, LP1, LG1 ,LC1, Cm1, p1);
             turno= turno += 1;
             System.out.println("Turno: "+turno);
             LP1.RecogerRecursos(Cm1);
             LP2.RecogerRecursos(Cm2);
 
+        }while (Cm1 != null && Cm2 != null);
 
-
+        if(Cm1 == null){
+            System.out.println("EL GANADOR ES :"+p2.getNombre());
+        }else if(Cm2 == null){
+            System.out.println("EL GANADOR ES: "+p1.getNombre());
         }
 
 

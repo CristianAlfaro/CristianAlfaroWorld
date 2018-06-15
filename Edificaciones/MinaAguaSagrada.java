@@ -45,7 +45,7 @@ public class MinaAguaSagrada implements edificacion {
 
     @Override
     public void funcion(centroMando cm) {
-        int recur = 25;
+        int recur = 45;
         cm.recurso3 = cm.recurso3 + recur;
 
     }

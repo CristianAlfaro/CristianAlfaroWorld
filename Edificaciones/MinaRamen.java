@@ -37,7 +37,7 @@ public class MinaRamen implements edificacion {
 
     @Override
     public void funcion(centroMando cm) {
-        int recur = 50;
+        int recur = 100;
         cm.recurso2= cm.recurso2 + recur;
 
     }

@@ -57,6 +57,7 @@ public class centroMando implements edificacion {
             cm.recurso3tope= cm.recurso3tope + 300;
             cm.vida = cm.vida +900;
             cm.recurso1mejora = cm.recurso1mejora + 800;
+            System.out.println("EL CENTRO DE MANDO SE HA MEJORADO!!!!");
 
         }else {
             System.out.println("TE HACEN FALTA ALGUNOS RECURSOS PARA HACERLO");

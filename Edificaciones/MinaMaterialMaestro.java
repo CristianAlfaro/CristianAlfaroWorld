@@ -37,7 +37,7 @@ public class MinaMaterialMaestro implements edificacion {
 
     @Override
     public void funcion(centroMando cm) {
-        int recur = 400;
+        int recur = 40;
         cm.recurso3= cm.recurso3 + recur;
 
     }

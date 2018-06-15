@@ -37,7 +37,7 @@ public class MinaElixir implements edificacion {
 
     @Override
     public void funcion(centroMando cm) {
-        int recur = 175;
+        int recur = 95;
         cm.recurso1= cm.recurso1 + recur;
 
     }

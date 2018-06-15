@@ -42,7 +42,7 @@ public class Menu {
         System.out.println("\n\n-----------------------------------------------------------------\n" +
                 "--------------------" + p3.getNombre() + "----------------------\n-----------------------------------------------------------------");
         Cm1.Recursos(p3);
-        System.out.println("\n1-Construir Edificaciones\n2-Mostrar edificaciones\n3-Entrenar Guerreros\n4-Entrenar Carros\n5-Atacar\n6-Terminar turno");
+        System.out.println("\n1-Construir Edificaciones\n2-Mostrar edificaciones\n3-Entrenar Guerreros\n4-Entrenar Carros\n5-Atacar\n6-Mejorar CENTRO DE MANDO\n7-Terminar turno");
 
     }
 //PERMITE AL JUGADOR ELEGIR UNA RAZA Y VINCULARLA CON EL
@@ -212,6 +212,24 @@ public class Menu {
                         }
                         break;
                     case 6:
+                        if(cm.recurso1tope == 12000 && cm.recurso2tope == 8000 && cm.recurso3tope == 4600){
+                            System.out.println("YA ESTA AL MAXIMO FELICIDADES");
+                        }else {
+                            System.out.println("SEGURO QUIERES MEJORAR TU CENTRO DE MANDO\nESTAS SON LAS MEJORAS QUE RECIBIRAS\n");
+                            cm.mostrar(cm,p);
+                            System.out.println("SI\nNO\n");
+                            hola = Hacer.nextInt();
+                            if (hola == 1){
+                                cm.mejorar(cm);
+                            }else if(hola == 2) {
+                                System.out.println("ESTA BIEN MEJORALO LUEGO");
+                            }else{
+                                System.out.println("TOMARE ESO COMO UN NO JAJA");
+                            }
+                        }
+
+                        break;
+                    case 7:
                         System.out.println("FIN DEL TURNO\n\n");
                         break;
                     default:
@@ -259,6 +277,9 @@ public class Menu {
                                     edif = lp2.buscar(opcwar);
                                     System.out.println(edif.nombre() + " SERA ATACADA POR " + war.nombre());
                                     war.ataque(edif,1);
+                                    if(edif.getVida() <= 0){
+                                        System.out.println("LA ESTRUCTURA HA SIDO ELIMINADA");
+                                    }
                                     hola = 6;
                                 }else {
                                 System.out.println("LO SINETO CAPI EL ENEMIGO NO TIENE ESA CONSTRUCCION");
@@ -291,6 +312,9 @@ public class Menu {
                                     edif = lp2.buscar(opcwar);
                                     System.out.println(edif.nombre() + " SERA ATACADA POR " + car.nombre());
                                     car.ataque(edif,1);
+                                    if(edif.getVida() <= 0){
+                                        System.out.println("LA ESTRUCTURA HA SIDO ELIMINADA");
+                                    }
                                     hola = 6;
                                 }else {
                                     System.out.println("LO SINETO CAPI EL ENEMIGO NO TIENE ESA CONSTRUCCION");

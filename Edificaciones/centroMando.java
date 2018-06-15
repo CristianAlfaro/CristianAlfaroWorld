@@ -20,17 +20,42 @@ public class centroMando implements edificacion {
     public int recurso2tope = 5000;
     public int recurso3tope = 3000;
 
-    public int recurso1mejora = 1000;
-    public int recurso2mejora = 500;
-    public int recurso3mejora = 300;
+    public int recurso1mejora = 2000;
+    public int recurso2mejora = 1500;
+    public int recurso3mejora = 800;
 
     public boolean juego = true;
 
+    public void mostrar(centroMando cm, Jugadores P){
+        System.out.println("LOS LIMITES DE RECURSOS SE ELEVARAN:\n"
+                +"\n"+"RECURSO 1: "+cm.recurso1tope+"---->"+(cm.recurso1tope+1000)
+                +"\n"+"RECURSO 2: "+cm.recurso2tope+"---->"+(cm.recurso2tope+500)
+                +"\n"+"RECURSO 3: "+cm.recurso3tope+"---->"+(cm.recurso3tope+300)
+                +"\n"+"VIDA: "+cm.vida+"---->"+(vida+900)+"\n"+
+                "PARA MEJORARLO DEBES DAR ESTA CANTIDAD DE RECURSOS:\n");
+        if (P.getRazaN() == raza1.nombre1()) {
+            raza1.recursos(recurso1, recurso2, recurso3,recurso1mejora,recurso2mejora,recurso3mejora);
+        } else if (P.getRazaN() == raza2.nombre1()) {
+            raza2.recursos(recurso1, recurso2, recurso3,recurso1mejora,recurso2mejora,recurso3mejora);
+        } else if (P.getRazaN() == raza3.nombre1()) {
+            raza3.recursos(recurso1, recurso2, recurso3,recurso1mejora,recurso2mejora,recurso3mejora);
+
+        }
+    }
+
     public void mejorar(centroMando cm){
-        cm.recurso1tope= cm.recurso1tope + 1000;
-        cm.recurso2tope= cm.recurso2tope +500;
-        cm.recurso3tope= cm.recurso3tope + 300;
-        cm.vida = cm.vida +750;
+        if(cm.recurso1 >= cm.recurso1mejora && cm.recurso2 >= cm.recurso2mejora && cm.recurso2 >= cm.recurso2mejora){
+            cm.recurso1tope= cm.recurso1tope + 1000;
+            cm.recurso2tope= cm.recurso2tope +500;
+            cm.recurso3tope= cm.recurso3tope + 300;
+            cm.vida = cm.vida +900;
+            cm.recurso1mejora = cm.recurso1mejora + 800;
+            cm.recurso2mejora = cm.recurso2mejora + 700;
+            cm.recurso3mejora = cm.recurso3mejora + 600;
+        }else {
+            System.out.println("TE HACEN FALTA ALGUNOS RECURSOS PARA HACERLO");
+        }
+
     }
 
     @Override

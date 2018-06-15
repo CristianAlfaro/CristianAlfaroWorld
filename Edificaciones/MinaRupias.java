@@ -37,7 +37,7 @@ public class MinaRupias implements edificacion {
 
     @Override
     public void funcion(centroMando cm) {
-        int recur = 100;
+        int recur = 1000;
         cm.recurso1= cm.recurso1 + recur;
 
     }

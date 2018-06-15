@@ -37,7 +37,7 @@ public class MinaKronolito implements edificacion {
 
     @Override
     public void funcion(centroMando cm) {
-        int recur = 75;
+        int recur = 750;
         cm.recurso2= cm.recurso2 + recur;
 
     }

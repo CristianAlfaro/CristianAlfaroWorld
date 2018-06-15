@@ -185,9 +185,9 @@ public class Menu {
                             System.out.println("ESTAS SON TUS CONSTRUCCIONES Y TROPAS \n");
                             System.out.println("---------------EDIFICACIONES------------------");
                             LP.mostrar();
-                            System.out.println("---------------GUERREROS------------------");
+                            System.out.println("-----------------GUERREROS--------------------");
                             LG.mostrar();
-                            System.out.println("---------------CARROS------------------");
+                            System.out.println("-------------------CARROS---------------------");
                             LC.mostrar();
                             break;
                         }else {
@@ -212,7 +212,7 @@ public class Menu {
                         }
                         break;
                     case 6:
-                        if(cm.recurso1tope == 12000 && cm.recurso2tope == 8000 && cm.recurso3tope == 4600){
+                        if(cm.recurso1tope == 12000 && cm.recurso2tope == 6000 && cm.recurso3tope == 3600){
                             System.out.println("YA ESTA AL MAXIMO FELICIDADES");
                         }else {
                             System.out.println("SEGURO QUIERES MEJORAR TU CENTRO DE MANDO\nESTAS SON LAS MEJORAS QUE RECIBIRAS\n");
@@ -221,6 +221,7 @@ public class Menu {
                             hola = Hacer.nextInt();
                             if (hola == 1){
                                 cm.mejorar(cm);
+                                System.out.println("EL CENTRO DE MANDO SE HA MEJORADO!!!!");
                             }else if(hola == 2) {
                                 System.out.println("ESTA BIEN MEJORALO LUEGO");
                             }else{
@@ -232,6 +233,7 @@ public class Menu {
                     case 7:
                         System.out.println("FIN DEL TURNO\n\n");
                         break;
+
                     default:
                         System.out.println("INGRESE OPCION VALIDA\n");
                 }
@@ -239,7 +241,7 @@ public class Menu {
                 System.err.println("Por favor, Ingrese un número");
                 Hacer.nextInt();
             }
-        } while (cm != null && hola != 6);
+        } while (cm != null && hola != 7);
         if (cm == null) {
             System.out.println("FIN DEL JUEGOOOO");
         }
@@ -279,6 +281,7 @@ public class Menu {
                                     war.ataque(edif,1);
                                     if(edif.getVida() <= 0){
                                         System.out.println("LA ESTRUCTURA HA SIDO ELIMINADA");
+                                        lp2.podar(0);
                                     }
                                     hola = 6;
                                 }else {
@@ -314,6 +317,7 @@ public class Menu {
                                     car.ataque(edif,1);
                                     if(edif.getVida() <= 0){
                                         System.out.println("LA ESTRUCTURA HA SIDO ELIMINADA");
+                                        lp2.podar(0);
                                     }
                                     hola = 6;
                                 }else {
@@ -360,8 +364,6 @@ public class Menu {
             EleccionJugador(p2, Cm2, LP2, LG2, LC2, LP1, LG1 ,LC1, Cm1, p1);
             turno= turno += 1;
             System.out.println("Turno: "+turno);
-            LP1.podar();
-            LP2.podar();
             LP1.RecogerRecursos(Cm1);
             LP2.RecogerRecursos(Cm2);
 

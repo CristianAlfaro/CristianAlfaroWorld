@@ -2,10 +2,9 @@ import Edificaciones.centroMando;
 import Edificaciones.edificacion;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class ListaEdificaciones {
-    private ArrayList<edificacion> edificacions;
+    public ArrayList<edificacion> edificacions;
 
     public ListaEdificaciones() {
         edificacions = new ArrayList<>();
@@ -82,6 +81,7 @@ public class ListaEdificaciones {
         for (edificacion e : edificacions){
             if(e.getVida() <= cero){
                 edificacions.remove(e);
+                return;
             }
 
         }

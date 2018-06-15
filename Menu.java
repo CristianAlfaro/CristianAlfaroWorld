@@ -294,11 +294,13 @@ public class Menu {
                                     if (edif.getVida() <= 0) {
                                         System.out.println("LA ESTRUCTURA HA SIDO ELIMINADA");
                                         lp2.podar(0);
+                                        hola = 7;
                                         return lp2;
                                     }
                                     hola = 7;
                                 } else {
                                     System.out.println("LO SINETO CAPI EL ENEMIGO NO TIENE ESA CONSTRUCCION");
+                                    return lp2;
                                 }
                                 return lp2;
                             } else {
@@ -307,6 +309,7 @@ public class Menu {
                             }
                         } else {
                             System.out.println("AUN NO TIENES SOLDADOS ENTRENADOS");
+                            return lp2;
                         }
 
                     } else if (opc == 2) {
@@ -331,6 +334,7 @@ public class Menu {
                                     if (edif.getVida() <= 0) {
                                         System.out.println("LA ESTRUCTURA HA SIDO ELIMINADA");
                                         lp2.podar(0);
+                                        hola = 7;
                                         return lp2;
                                     }
                                     hola = 7;
@@ -351,8 +355,10 @@ public class Menu {
                         return lp2;
                     }
                 }while (opc != 3) ;
+                return lp2;
             }else{
                 System.out.println("DEBES CREAR TROPAS ANTES DE ATACAR");
+                return lp2;
             }
         }else{
             System.out.println("EL ENEMIGO NO TIENE NADA CONSTRUIDO AUN");
